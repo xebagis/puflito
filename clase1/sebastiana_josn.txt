@@ -1,0 +1,25 @@
+{
+	"País": "Nueva Zelanda",
+	"Capital": "Wellington",
+	"Ciudades": [{
+			"nombre": "Aukland",
+			"población": "1.440.660",
+			"ubicación": "Isla Norte",
+			"religiones": [
+				"cristianos",
+				"anglicanos",
+				"presbiterianos"
+			]
+		},
+		{
+			"nombre": "Christchurch",
+			"población": "390.300",
+			"ubicación": "Isla Norte"
+		},
+		{
+			"nombre": "Manukau",
+			"población": "375.700",
+			"ubicación": "Isla Norte"
+		}
+	]
+}

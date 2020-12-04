@@ -1,0 +1,155 @@
+---------------------------------------------------------------------
+Nociones de red
+---------------------------------------------------------------------
+
+Stack de protocolos. La red que vamos a analizar es TCP/IP.
+Existen varios tipos de redes.
+
+1) Conmutacion por circuitos.  Manual años 30,40 Centrales telefonicas.
+2) Conmutacion por timeslot    un pedacito de tiempo para cada comunicacion
+3) Conmutacion por paquete     Internet.
+
+Redes de broadcast que son los cableoperadores / canales de television
+1 emite 10000000000 escuchan.
+
+
+Capa1: Capa fisica.
+Capa2: Capa de enlace
+Capa3: (IP) Capa de los routes, se abarata porque un paquete puede tomar 
+       diferentes Rutas.
+Capa4: TCP hay una session abierta desde un usuario A a un usuario B.
+Capa5: HTTP 
+
+HTTP GET / 1.1
+HOST: 192.168.0.22
+
+Codificaciones: Por red, solo pasan datos binarios. los protocolos son 
+                binarios. Ahora bien. HTTP cambia NO es binarios
+                sino que es ASCII, UTF8. Basado en texto.
+
+
+Si quiero enviar un pago de 1537.20 Cuantos bytes necesito ?
+
+Depende de como lo quiera enviar. 
+
+1 Byte son 8 bits.... 0... 255
+2 Bytes son 16 butes  0... 65536
+3 Bytes
+
+1537.20   7 Bytes para pasar este numero.
+
+Encoding  ASCII, IBM (Muchos), UTF8 Tiene una cantidad importante de 
+caracteres, pero la ventaja principal es que su ancho es variable.
+
+La red ip se caracteriza por tener direcciones de routers o de hosts
+y un numero final que es el puerto, el puerto es un numero de applicacion.
+
+80 Tipicamente es HTTP
+8080 es HTTP
+3000 es nodejs servicio HTTP.
+
+---------------------------------------------------------------------
+
+Un array asociativo, y lo va a transoformar 
+en formato JSON.
+y lo van a parsear con https://jsonlint.com/
+
+---------------------------------------------------------------------
+
+Api rest
+
+1) Que es un api 
+
+   Un conjunto de metodos, o procedimientos que tienen un input
+   y un output
+
+2) Que es un api rest ?
+
+   a) Es un api
+   b) Se accede a traves de HTTP los metodos son 
+
+      GET + nombre
+      POST + nombre
+      PUT + nombre
+      DELETE + nombre
+
+   Lo que dispara es un HTTP request; pasa por un http server 
+   apache, nginx, y este resuelve en HTTP Response + mensaje 
+   codificado en JSON.
+
+cosas a tener en cuenta antes de ver las herramientas.
+
+en el response hay que tener en cuenta los codigos de error.
+
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+200 son variantes de que funciono bien.
+300 hay que hacer cambios en el request
+400 la peticion tiene que modificarse para que sea exitosa
+500 ocurrio un error en el servidor y la consulta no puede
+    ser satisfecha.
+
+Detalle pormenorizado.
+
+A través de un api rest, puedo utiliar refertial transparency
+Transparencia referencial.
+
+No se donde esta corriendo el nginx, apahce, igualmente puedo
+accederlo.
+
+
+Herramientas
+
+   curl
+   postman
+
+
+
+Que fue REST la primera vez
+
+yo le pase GET /clientes?nombre=carlos&apellido=rodriguez
+
+<clientes>
+   <cliente>
+     <nombre>carlos</nombre>
+   </cliente>
+</clientes>
+
+
+No quiero usar XML es muy pesado quiero usar la misma notacion
+que usar javascript
+
+Ahi llegamos a RESTFULL
+
+csv
+123445|Andy|vazquez|22.00|
+
+Diego Ariel plantear Necesito enviar XML y me responden XML.
+
+json_encode
+xml_encode pasar de un array asociativo a un xml
+a la vuelta cuando me responden necesito pasar de xml
+a array asociativo.
+
+List<String> no poner [2, ""]
+List<Cliente> no puedo poner "nombre" Objetos del tipo cliente
+Map<String, Object> array asociativo en php.
+Set<>
+Customizables 
+
+Todo esto existe porque es un lenguje tipado.
+En javascript que estructuras existen
+
+[1,2,3,4,5,6]
+{key: { key: {key: [1,2,3,4,5, true, false], otraKey: "hola"}}}
+
+
+Si ponemos /usuario trae todo
+si ponemos /usuario?firstName=Lavada  queryString 
+   el resultado es un array.
+
+
+
+
+
+
