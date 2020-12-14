@@ -48,5 +48,3 @@ SELECT usuarios.nombre, usuarios.apellido, encuentros.nombre, encuentros.fecha
 FROM registrousuario
 INNER JOIN encuentros on encuentros.id = registrousuario.idencuentro
 INNER JOIN usuarios on usuarios.id = registrousuario.idUsuario 
-
-

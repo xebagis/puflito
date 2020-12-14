@@ -18,3 +18,8 @@ Route::get('/', function () {
 });
 
 Route::resource("/usuario", "App\Http\Controllers\UsuarioController");
+Route::resource("/registroUsuario", "App\Http\Controllers\RegistroUsuarioController", [
+    "except" => ["destroy"]    
+]);
+
+Route::delete("registroUsuario/{idUsuario}/{idEvento}", "App\Http\Controllers\RegistroUsuarioController@destroy");

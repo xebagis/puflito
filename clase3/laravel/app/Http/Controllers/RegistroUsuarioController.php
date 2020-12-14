@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Utiles\MySQLUtil;
 
-class UsuarioController extends Controller
+class RegistroUsuarioController extends Controller
 {
     public function index() {
         $utilitario = new MySQLUtil();
-        $res = $utilitario->query('select * from usuarios');
+        $strSQL = "SELECT usuarios.nombre as nombreUsu, usuarios.apellido, ". 
+                  "encuentros.nombre as nombreEncuentro, encuentros.fecha ".
+                  "FROM registrousuario ".
+                  "INNER JOIN encuentros on encuentros.id = registrousuario.idencuentro ".
+                  "INNER JOIN usuarios on usuarios.id = registrousuario.idUsuario";
+ 
+        $res = $utilitario->query($strSQL);
+        // $res = ["sql" => $strSQL];
         return response()->json($res, 200);
     }
 
@@ -31,18 +38,13 @@ class UsuarioController extends Controller
         return response()->json($resp, 201);
     }
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {    
-        $strSQL = "DELETE FROM usuarios where id = '$id'";
+    public function destroy($idUsuario, $idEvento) {    
+        $strSQL = "DELETE FROM registrousuario where ".
+                  "idusuario = '$idUsuario' and idencuentro = '$idEvento' ";
         $utilitario = new MySQLUtil();
         $utilitario->execute($strSQL);
  
-        $resp = ["borrado" => "ok"];
+        $resp = ["idUsuario" => $idUsuario, "idEvento" => $idEvento];
         return response()->json($resp, 200);
     }
 }
