@@ -2,3 +2,9 @@ Tarea para el Viernes 18.
 
 Hacer el controlador de eventos
 
+Adjunto a la tarea para que puedan completar la tabla
+
+fetch('http://localhost/integrador/server.php/registroUsuario').then(res => res.json()).then(z => window.data = z);
+window.tmpl = $('#tablaPrincipal').html()
+window.final = Mustache.render(tmpl, {lista: data})
+$('#tabUsuCursos').html(final)
