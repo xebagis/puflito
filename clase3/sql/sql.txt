@@ -1,0 +1,52 @@
+---------------------------------------------------------------------
+Insert usuarios
+---------------------------------------------------------------------
+
+insert into usuarios (id, nombre, apellido) 
+values ('bafa360c-4376-11e9-88fa-64006afe4f1e', 'Cesar', 'Segovia');
+
+insert into usuarios (id, nombre, apellido) 
+value ('c1bd0ce4-4376-11e9-88fa-64006afe4f1e', 'Sabrina', 'Alvarez');
+
+insert into usuarios (id, nombre, apellido) 
+value ('c717468c-4376-11e9-88fa-64006afe4f1e', 'Africa', 'Sacin');
+
+---------------------------------------------------------------------
+Insert encuentros
+---------------------------------------------------------------------
+
+insert into encuentros (id, fecha, nombre)
+values ('12bbc8f0-e26a-4820-a12c-b9734fb0351a', '20190320', 'Filosofia de heidegger');
+
+insert into encuentros (id, fecha, nombre)
+values ('b5db5fe3-da15-4cae-bee5-9c0ed76cc1f3', '20190322', 'c# beginner');
+
+insert into encuentros (id, fecha, nombre)
+values ('33d9311b-a192-44f1-82ef-dd59f7bb08f4', '20190324', 'Api web Services');
+
+---------------------------------------------------------------------
+Insert registro de usuarios
+---------------------------------------------------------------------
+
+insert into registrousuario (idusuario, idencuentro)
+values ('c1bd0ce4-4376-11e9-88fa-64006afe4f1e', 'b5db5fe3-da15-4cae-bee5-9c0ed76cc1f3');
+
+insert into registrousuario (idusuario, idencuentro)
+values ('c1bd0ce4-4376-11e9-88fa-64006afe4f1e', '33d9311b-a192-44f1-82ef-dd59f7bb08f4');
+
+insert into registrousuario (idusuario, idencuentro)
+values ('c1bd0ce4-4376-11e9-88fa-64006afe4f1e', '12bbc8f0-e26a-4820-a12c-b9734fb0351a');
+
+insert into registrousuario (idusuario, idencuentro)
+values ('bafa360c-4376-11e9-88fa-64006afe4f1e', 'b5db5fe3-da15-4cae-bee5-9c0ed76cc1f3');
+
+---------------------------------------------------------------------
+select para conocer los usuario y a que eventos esta suscriptos
+---------------------------------------------------------------------
+
+SELECT usuarios.nombre, usuarios.apellido, encuentros.nombre, encuentros.fecha
+FROM registrousuario
+INNER JOIN encuentros on encuentros.id = registrousuario.idencuentro
+INNER JOIN usuarios on usuarios.id = registrousuario.idUsuario 
+
+
