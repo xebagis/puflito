@@ -10,7 +10,8 @@ class RegistroUsuarioController extends Controller
     public function index() {
         $utilitario = new MySQLUtil();
         $strSQL = "SELECT usuarios.nombre as nombreUsu, usuarios.apellido, ". 
-                  "encuentros.nombre as nombreEncuentro, encuentros.fecha ".
+                  "encuentros.nombre as nombreEncuentro, encuentros.fecha, ".
+                  "usuarios.id as idUsuario, encuentros.id as idEncuentro ".
                   "FROM registrousuario ".
                   "INNER JOIN encuentros on encuentros.id = registrousuario.idencuentro ".
                   "INNER JOIN usuarios on usuarios.id = registrousuario.idUsuario";
